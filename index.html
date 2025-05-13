@@ -1,48 +1,49 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PosturAves WebApp</title>
+  <title>PosturAves - Menu</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f0f4f8;
-    }
-
-    h1 {
-      color: #003f5c;
-    }
-
-    button {
-      background-color: #f97316;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-  </style>
+  <script defer src="menu.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-  <h1>Bem-vindo ao PosturAves WebApp!</h1>
-  <p>Exemplo de integração com o Telegram.</p>
-  <button onclick="Telegram.WebApp.showAlert('WebApp funcionando!')">Testar botão</button>
+<body class="bg-gray-100 p-6 text-gray-800">
+  <h1 class="text-2xl font-bold text-center mb-6 text-blue-600">Menu PosturAves</h1>
 
+  <div id="menu" class="max-w-md mx-auto space-y-2">
+    <!-- Painel -->
+    <button class="w-full px-4 py-2 text-left bg-white rounded shadow hover:bg-blue-50"
+      onclick="abrirSubmenu('painel')">
+      📊 Painel
+    </button>
+    <div id="submenu-painel" class="hidden pl-6 space-y-1">
+      <button class="text-sm text-left text-blue-600" onclick="abrirPagina('dashboard')">Resumo Diário</button>
+      <button class="text-sm text-left text-blue-600" onclick="abrirPagina('semanal')">Desempenho Semanal</button>
+    </div>
 
-  <script>
-    function enviarMensagem() {
-      Telegram.WebApp.sendData("Olá! WebApp funcionando com sucesso!");
-    }
+    <!-- Financeiro -->
+    <button class="w-full px-4 py-2 text-left bg-white rounded shadow hover:bg-blue-50"
+      onclick="abrirSubmenu('financeiro')">
+      💰 Financeiro
+    </button>
+    <div id="submenu-financeiro" class="hidden pl-6 space-y-1">
+      <button class="text-sm text-left text-blue-600" onclick="abrirPagina('lancamentos')">Lançamentos</button>
+      <button class="text-sm text-left text-blue-600" onclick="abrirPagina('relatorios')">Relatórios</button>
+    </div>
 
-    Telegram.WebApp.ready();
-  </script>
+    <!-- Produção -->
+    <button class="w-full px-4 py-2 text-left bg-white rounded shadow hover:bg-blue-50"
+      onclick="abrirSubmenu('producao')">
+      🐔 Produção
+    </button>
+    <div id="submenu-producao" class="hidden pl-6 space-y-1">
+      <button class="text-sm text-left text-blue-600" onclick="abrirPagina('lotes')">Lotes</button>
+      <button class="text-sm text-left text-blue-600" onclick="abrirPagina('consumo')">Consumo</button>
+    </div>
+  </div>
 </body>
 
 </html>
