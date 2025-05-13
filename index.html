@@ -1,0 +1,47 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PosturAves WebApp</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f4f8;
+    }
+
+    h1 {
+      color: #003f5c;
+    }
+
+    button {
+      background-color: #f97316;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Bem-vindo ao PosturAves WebApp!</h1>
+  <p>Exemplo de integração com o Telegram.</p>
+  <button onclick="enviarMensagem()">Enviar Mensagem ao Bot</button>
+
+  <script>
+    function enviarMensagem() {
+      Telegram.WebApp.sendData("Olá! WebApp funcionando com sucesso!");
+    }
+
+    Telegram.WebApp.ready();
+  </script>
+</body>
+
+</html>
